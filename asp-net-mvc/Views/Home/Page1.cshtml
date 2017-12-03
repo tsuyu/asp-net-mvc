@@ -1,0 +1,11 @@
+﻿<h2>Page 1</h2>
+
+<div id="vue-root" v-cloak>
+    <h2>{{ header }}</h2>
+</div>
+
+@section scripts
+{
+    @Html.Script("~/dist/commons.js")
+    @Html.Script("~/dist/page1.js")
+}
