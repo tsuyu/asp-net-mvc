@@ -13,7 +13,6 @@ namespace asp_net_mvc.Models
         private OracleConnection con;
         private void connection()
         {
-            //string constring = ConfigurationManager.ConnectionStrings["studentconn"].ToString();
             con = new OracleConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["studentconn"].ConnectionString;
         }

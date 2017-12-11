@@ -6,102 +6,192 @@
     <title>Asp.net MVC</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    @RenderSection("stylesheets")
     <style type="text/css">
         [v-cloak] {
             display: none;
         }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            padding-top: 50px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: bold;
-        }
-
-        #app-header.navbar-default .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: rgba(119, 119, 119, 1);
-        }
-
-        #app-header.navbar-default {
-            font-size: 18px;
-            background-color: rgba(248, 248, 248, .9);
-            border-width: 1px;
-            border-radius: 0;
-            /*box-shadow: 0 2px 8px -1px rgba(0,0,0,0.25)*/
-        }
-
-            #app-header.navbar-default .navbar-nav > li > a {
-                color: rgba(119, 119, 119, 1);
-                background-color: rgba(248, 248, 248, 0);
-            }
-
-                #app-header.navbar-default .navbar-nav > li > a:hover,
-                #app-header.navbar-default .navbar-nav > li > a:focus {
-                    color: rgba(51, 51, 51, 1);
-                    background-color: rgba(248, 248, 248, 0);
-                }
-
-            #app-header.navbar-default .navbar-nav > .active > a,
-            #app-header.navbar-default .navbar-nav > .active > a:hover,
-            #app-header.navbar-default .navbar-nav > .active > a:focus {
-                color: rgba(85, 85, 85, 1);
-                background-color: rgba(231, 231, 231, 1);
-            }
-
-            #app-header.navbar-default .navbar-toggle {
-                border-color: #ddd;
-            }
-
-                #app-header.navbar-default .navbar-toggle:hover,
-                #app-header.navbar-default .navbar-toggle:focus {
-                    background-color: #ddd;
-                }
-
-                #app-header.navbar-default .navbar-toggle .icon-bar {
-                    background-color: #888;
-                }
-
-                #app-header.navbar-default .navbar-toggle:hover .icon-bar,
-                #app-header.navbar-default .navbar-toggle:focus .icon-bar {
-                    background-color: #888;
-                }
     </style>
+    <meta name="description" content="asp.net mvc vue" />
 </head>
-<body>
-
-    <nav id="app-header" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="~/">mvc + vue + webpack</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Page 1", "Page1", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Page 2", "Page2", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Page 3", "Page3", "Student", new { area = "" }, null)</li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<body class="flat-blue sidebar-collapse">
+    <div class="sidebar">
+        <div class="menu-control toggle-sidebar">
+            <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> Flat Admin</a>
+            <i class="fa fa-bars navicon"></i>
         </div>
-    </nav>
+        <ul class="menu">
+            <li class="submenu">
+                <a href="@Url.Action("Index", "Home", new { area = "" })" @Html.IsActive("Index","Home")>
+                    <div>
+                        <i class="menu-icon fa fa-th-large"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="@Url.Action("Page1", "Home", new { area = "" })" @Html.IsActive("page1","home")>
+                    <div>
+                        <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-title">Page 1</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="@Url.Action("Page2", "Home", new { area = "" })" @Html.IsActive("page2","home")>
+                    <div>
+                        <i class="menu-icon fa fa-table"></i>
+                        <span class="menu-title">Page 2</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu">
+                <a href="@Url.Action("Page3", "Student", new { area = "" })" @Html.IsActive("page3","student")>
+                    <div>
+                        <i class="menu-icon fa fa-file-text-o"></i>
+                        <span class="menu-title">Page 3</span>
+                    </div>
+                </a>
+            </li>
+            <li class="submenu dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <div>
+                        <i class="menu-icon fa fa-slack"></i>
+                        <span class="menu-title">Page Example</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="login.html">
+                            <div>
+                                <i class="menu-icon fa fa-sign-in"></i>
+                                <span class="menu-sub-title">Login</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="register.html">
+                            <div>
+                                <i class="menu-icon fa fa-pencil-square-o"></i>
+                                <span class="menu-sub-title">Register</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <div>
+                        <i class="menu-icon fa fa-magic"></i>
+                        <span class="menu-title">Custom Elements</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="custom-dashboard.html">
+                            <div>
+                                <i class="menu-icon fa fa-bar-chart"></i>
+                                <span class="menu-sub-title">Dashboard</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="content-container wrap">
+        <nav class="navbar navbar-default">
+            <div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><i class="fa fa-bar-chart"></i> Flat Admin</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa fa-comments"></i> 0</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    Notification ( 0 )
+                                </li>
+                                <li class="message">
+                                    No new notification
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown notification-alert">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-exclamation-circle"></i> 3</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-title-bar">
+                                    Notification ( 3 )
+                                </li>
+                                <li>
+                                    <ul class="notification-list">
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-alert">
+                                                    <i class="fa fa-exclamation-circle fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message">1 new registration</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-success">
+                                                    <i class="fa fa-check fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message">3 new orders</div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="noti-icon noti-primary">
+                                                    <i class="fa fa-comments fa-2x"></i>
+                                                </div>
+                                                <div class="noti-message">2 customers messages</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Emily Hart <span class="caret"></span></a>
+                            <ul class="dropdown-menu user-info">
+                                <li class="dropdown-title-bar">
+                                    <img src="images/profile.jpg" class="profile-img">
+                                </li>
+                                <li>
+                                    <div class="navbar-login">
+                                        <h4 class="user-name">Emily Hart</h4>
+                                        <p>emily_hart@email.com</p>
+                                        <div class="btn-group margin-bottom-2x" role="group">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Profile</button>
+                                            <button type="button" class="btn btn-default"><i class="fa fa-sign-out"></i> Logout</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-    <main class="container-fluid">
-        @RenderBody()
-    </main>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     @RenderSection("scripts")
 </body>

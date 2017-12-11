@@ -1,0 +1,7 @@
+npm view webpack version
+
+Install-Package Oracle.ManagedDataAccess -Version 12.2.1100 
+
+npm run build:dev
+
+(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=GFORCE)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=UMPDB)))

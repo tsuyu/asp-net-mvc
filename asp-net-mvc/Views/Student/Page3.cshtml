@@ -1,7 +1,30 @@
-﻿<div id="vue-root"></div>
-
+﻿<div class="row">
+    <div class="col-xs-12">
+        <span class="page-title red"><h2>Page 3</h2></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li class="active">
+                <a href="#">Dashboard</a>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div id="vue-root"></div>
+</div>
+@section stylesheets
+{
+    @Html.Stylesheet("~/dist/css/app.css")
+}
 @section scripts
 {
     @Html.Script("~/dist/commons.js")
+    @Html.Script("~/dist/main.js")
     @Html.Script("~/dist/page3.js")
 }

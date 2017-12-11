@@ -174,7 +174,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <!-- npm build script -->
+  <!-- npm build script>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <NpmBuildScript>npm run build:dev</NpmBuildScript>
   </PropertyGroup>
@@ -185,13 +185,13 @@
     <Exec Command="npm install" />
     <Exec Command="$(NpmBuildScript)" />
   </Target>
-  <!-- call npm build script before project build -->
+
   <Target Name="BeforeBuild" DependsOnTargets="NpmBuild">
   </Target>
-  <!-- ensure that js build output in dist folder is included in publish -->
+
   <Target Name="AfterBuild">
     <ItemGroup>
       <Content Include="dist\*.js" />
     </ItemGroup>
-  </Target>
+  </Target -->
 </Project>

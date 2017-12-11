@@ -59,5 +59,18 @@ namespace asp_net_mvc.Helpers
 
             return HttpRuntime.Cache[rootRelativePath] as string;
         }
+
+        public static MvcHtmlString IsActive(this HtmlHelper htmlHelper, string action, string controller,
+            string activeClass="class=\"active\"", string inActiveClass = "")
+        {
+            var routeData = htmlHelper.ViewContext.RouteData;
+
+            var routeAction = routeData.Values["action"].ToString();
+            var routeController = routeData.Values["controller"].ToString();
+
+            var returnActive = (controller == routeController && action == routeAction);
+
+            return new MvcHtmlString(returnActive ? activeClass : inActiveClass);
+        }
     }
 }

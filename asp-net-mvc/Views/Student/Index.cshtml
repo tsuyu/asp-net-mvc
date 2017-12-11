@@ -4,9 +4,13 @@
 }
 
 <h2>Student</h2>
-
+@section stylesheets
+{
+    @Html.Stylesheet("~/dist/css/app.css")
+}
 @section scripts
 {
     @Html.Script("~/dist/commons.js")
+    @Html.Script("~/dist/main.js")
     @Html.Script("~/dist/home.js")
 }
